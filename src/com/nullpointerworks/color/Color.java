@@ -5,6 +5,11 @@
  */
 package com.nullpointerworks.color;
 
+/**
+ * 
+ * @since 1.0.0
+ * @author Michiel Drost - Nullpointer Works
+ */
 public class Color 
 {
 	public static final int LUCID 	= toInt(   0,   0,   0,   0);
