@@ -18,7 +18,7 @@ public class ColorizerRGB
 	 * Performs a linear interpolation between two colors using a given lambda [0-1]. The provided integer colors are 8 bits per channel in ARGB format.
 	 * @since 1.0.0
 	 */
-	public static int lerp(int c1, int c2, float lambda)
+	public int lerp(int c1, int c2, float lambda)
 	{
 		int r = (c1>>16)& 0xFF;
 		int g = (c1>>8) & 0xFF;
@@ -39,7 +39,7 @@ public class ColorizerRGB
 	 * square interpolate between two RGB colors using a given lambda
 	 * @since 1.0.0
 	 */
-	public static int slerp(int c1, int c2, float lambda)
+	public int slerp(int c1, int c2, float lambda)
 	{
 		int r = (c1>>16) & 0xFF;
 		int g = (c1>>8)  & 0xFF;
@@ -59,7 +59,7 @@ public class ColorizerRGB
     /*
      * Pass in RGB values [0,255]. returns the integer value with full alpha
      */
-	private static int toInt(int r,int g, int b)
+	private int toInt(int r,int g, int b)
 	{
 		return ( (-16777216) | r<<16 | g<<8 | b );
 	}
@@ -67,7 +67,7 @@ public class ColorizerRGB
 	/*
 	 * Integer Lerp - interpolate two integers
 	 */
-	private static int il256(int A, int B, int F)
+	private int il256(int A, int B, int F)
 	{
 		return (A*(256-F) + B * F) >> 8;
 	}
@@ -75,7 +75,7 @@ public class ColorizerRGB
 	/*
 	 * Square Integer Lerp - square interpolate two integers 
 	 */
-	private static int sil256(int A, int B, int F)
+	private int sil256(int A, int B, int F)
 	{
 		A=A*A; B=B*B;
 		int x = il256(A,B,F);
