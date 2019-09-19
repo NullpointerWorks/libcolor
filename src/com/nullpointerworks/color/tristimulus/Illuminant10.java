@@ -11,59 +11,6 @@ package com.nullpointerworks.color.tristimulus;
  */
 public class Illuminant10
 {
-	/**
-	 * Fluorescent light. Ultralume 50, Philips TL85
-	 * @since 1.0.0
-	 */
-	public static final float[] Ultralume50	 = {99.001f,	100.000f,	83.134f};
-
-	/**
-	 * Fluorescent light. Ultralume 40, Philips TL84
-	 * @since 1.0.0
-	 */
-	public static final float[] Ultralume40	 = {103.866f,	100.000f,	65.627f};
-	
-	/**
-	 * Fluorescent light. Ultralume 30, Philips TL83
-	 * @since 1.0.0
-	 */
-	public static final float[] Ultralume30	 = {111.428f,	100.000f,	40.353f};
-	
-	/**
-	 * Incandescent/tungsten.
-	 * @since 1.0.0
-	 */
-	public static final float[] TUNGSTEN	 = {111.144f,	100.000f,	35.200f};
-	
-	/**
-	 * ICC profile PCS.
-	 * @since 1.0.0
-	 */
-	public static final float[] D50	 = {96.720f,	100.000f,	81.427f};
-	
-	/**
-	 * Mid-morning daylight.
-	 * @since 1.0.0
-	 */
-	public static final float[] D55	 = {95.799f,	100.000f,	90.926f};
-	
-	/**
-	 * Daylight, sRGB, Adobe-RGB.
-	 * @since 1.0.0
-	 */
-	public static final float[] D65	 = {94.811f,	100.000f,	107.304f};
-	
-	/**
-	 * North sky daylight.
-	 * @since 1.0.0
-	 */
-	public static final float[] D75	 = {94.416f,	100.000f,	120.641f};
-	
-	/**
-	 * Equal energy.
-	 * @since 1.0.0
-	 */
-	public static final float[] EQUAL	 = {100.000f,	100.000f,	100.000f};
 	
 	
 	

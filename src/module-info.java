@@ -14,5 +14,4 @@ module libnpw.color
 	exports com.nullpointerworks.color.convertors.hsl;
 	exports com.nullpointerworks.color.convertors.hsv;
 	exports com.nullpointerworks.color.convertors.rgb;
-	exports com.nullpointerworks.color.tristimulus;
 }
