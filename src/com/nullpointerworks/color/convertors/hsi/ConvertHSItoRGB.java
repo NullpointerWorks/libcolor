@@ -11,10 +11,15 @@ import com.nullpointerworks.color.convertors.IConverter;
 
 /**
  * 
+ * @author Michiel Drost - Nullpointer Works
  * @since 1.0.0
  */
 public class ConvertHSItoRGB implements IConverter
 {
+	/**
+	 * 
+	 * @since 1.0.0
+	 */
 	public static IConverter New() {return new ConvertHSItoRGB();}
 	
 	@Override

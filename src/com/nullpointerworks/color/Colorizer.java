@@ -18,13 +18,13 @@ public class Colorizer
 	 * 
 	 * @since 1.0.0
 	 */
-	public static final ColorizerARGB argb = new ColorizerARGB();
+	public static final ColorizerARGB ARGB = new ColorizerARGB();
 	
 	/**
 	 * 
 	 * @since 1.0.0
 	 */
-	public static final ColorizerRGB rgb = new ColorizerRGB();
+	public static final ColorizerRGB RGB = new ColorizerRGB();
 	
 	/**
 	 * Percentage based color compilation. aRGB values range from [0,1]

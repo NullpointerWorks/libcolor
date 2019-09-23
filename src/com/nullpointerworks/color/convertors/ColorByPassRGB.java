@@ -13,13 +13,22 @@ import com.nullpointerworks.color.convertors.IConverter;
 /**
  * 
  * @since 1.0.0
+ * @author Michiel Drost - Nullpointer Works
  */
 public class ColorByPassRGB implements IConverter
 {
+	/**
+	 * 
+	 * @since 1.0.0
+	 */
 	public static IConverter New(ColorModel cm) {return new ColorByPassRGB(cm);}
 	
 	private ColorModel bypass = null;
 	
+	/**
+	 * 
+	 * @since 1.0.0
+	 */
 	public ColorByPassRGB(ColorModel cm)
 	{
 		bypass = cm;

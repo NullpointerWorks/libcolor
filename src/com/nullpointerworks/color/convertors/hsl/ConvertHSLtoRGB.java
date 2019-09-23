@@ -9,8 +9,17 @@ import com.nullpointerworks.color.Color;
 import com.nullpointerworks.color.ColorModel;
 import com.nullpointerworks.color.convertors.IConverter;
 
+/**
+ * 
+ * @since 1.0.0
+ * @author Michiel Drost - Nullpointer Works
+ */
 public class ConvertHSLtoRGB implements IConverter
 {
+	/**
+	 * 
+	 * @since 1.0.0
+	 */
 	public static IConverter New() {return new ConvertHSLtoRGB();}
 	
 	@Override

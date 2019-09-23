@@ -12,9 +12,14 @@ import com.nullpointerworks.color.convertors.IConverter;
 /**
  * 
  * @since 1.0.0
+ * @author Michiel Drost - Nullpointer Works
  */
 public class ConvertRGBtoCMY implements IConverter
 {
+	/**
+	 * 
+	 * @since 1.0.0
+	 */
 	public static IConverter New() {return new ConvertRGBtoCMY();}
 	
 	@Override
