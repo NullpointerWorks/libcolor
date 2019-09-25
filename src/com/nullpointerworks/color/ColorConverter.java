@@ -15,12 +15,10 @@ import com.nullpointerworks.color.convertors.rgb.*;
 /**
  * 
  * @since 1.0.0
+ * @author Michiel Drost - Nullpointer Works
  */
 public final class ColorConverter
 {
-	/*
-	 * color converters assuming the same color space
-	 */
 	static final IConverter[][] convertors = new IConverter[][]
 	{
 		// RGB to ...
