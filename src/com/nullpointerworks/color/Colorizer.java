@@ -15,7 +15,7 @@ public class Colorizer
 	private Colorizer() {}
 	
 	/**
-	 * 
+	 * A color manipulation class 
 	 * @since 1.0.0
 	 */
 	public static final ColorizerARGB ARGB = new ColorizerARGB();
@@ -28,10 +28,10 @@ public class Colorizer
 	
 	/**
 	 * Percentage based color compilation. aRGB values range from [0,1]
-	 * @param a - 
-	 * @param r - 
-	 * @param g - 
-	 * @param b - 
+	 * @param a - the alpha transparency channel
+	 * @param r - the red color channel
+	 * @param g - the green color channel
+	 * @param b - the blue color channel
 	 * @since 1.0.0
 	 */
 	public static int toInt(float a, float r, float g, float b)
@@ -45,10 +45,10 @@ public class Colorizer
 	
 	/**
      * Pass in aRGB values [0,255]. returns the integer value
-	 * @param a - 
-	 * @param r - 
-	 * @param g - 
-	 * @param b - 
+	 * @param a - the alpha transparency channel
+	 * @param r - the red color channel
+	 * @param g - the green color channel
+	 * @param b - the blue color channel
 	 * @since 1.0.0
      */
 	public static int toInt(int a,int r,int g,int b)
@@ -58,9 +58,9 @@ public class Colorizer
 	
 	/**
 	 * Percentage based color compilation. RGB values range from [0,1]
-	 * @param r - 
-	 * @param g - 
-	 * @param b - 
+	 * @param r - the red color channel
+	 * @param g - the green color channel
+	 * @param b - the blue color channel
 	 * @since 1.0.0
 	 */
 	public static int toInt(float r, float g, float b)
@@ -73,9 +73,9 @@ public class Colorizer
 	
     /**
      * Pass in RGB values [0,255]. returns the integer value with full alpha
-	 * @param r - 
-	 * @param g - 
-	 * @param b - 
+	 * @param r - the red color channel
+	 * @param g - the green color channel
+	 * @param b - the blue color channel
 	 * @since 1.0.0
      */
 	public static int toInt(int r,int g, int b)
@@ -106,10 +106,11 @@ public class Colorizer
 	}
 	
 	/**
-	 * Returns the color hex value of the given integer
-	 * @param r - 
-	 * @param g - 
-	 * @param b - 
+	 * Returns the hex value as a {@code String} of the given integer.
+	 * @param r - the red color channel
+	 * @param g - the green color channel
+	 * @param b - the blue color channel
+	 * @return the hex value as a {@code String} of the given integer
 	 */
 	public static String toHex(int r, int g, int b)
 	{
