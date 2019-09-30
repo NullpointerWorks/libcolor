@@ -10,14 +10,15 @@ import com.nullpointerworks.color.ColorModel;
 import com.nullpointerworks.color.convertors.IConverter;
 
 /**
- * 
+ * This converter implementation compiles RGB(Red, Green, Blue) data from HSI(Hue, Saturation, Intensity) data.
  * @author Michiel Drost - Nullpointer Works
  * @since 1.0.0
  */
 public class ConvertHSItoRGB implements IConverter
 {
 	/**
-	 * 
+	 * Returns a new HSI to RGB converter instance.
+	 * @return a new HSI to RGB converter instance
 	 * @since 1.0.0
 	 */
 	public static IConverter New() {return new ConvertHSItoRGB();}
@@ -25,10 +26,9 @@ public class ConvertHSItoRGB implements IConverter
 	@Override
 	public Color convert(Color c)
 	{
-		float h = c.getComponent(0);
+		float H = c.getComponent(0) * 0.016666667f;
 		float S = c.getComponent(1);
 	    float I = c.getComponent(2);
-	    float H = 0.016666667f * h;
 		float Z = 1f - Math.abs( (H % 2f) - 1f );
 		float C = I * S / (1f + Z);
 		float X = C * Z;

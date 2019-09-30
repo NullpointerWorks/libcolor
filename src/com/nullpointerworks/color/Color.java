@@ -6,7 +6,7 @@
 package com.nullpointerworks.color;
 
 /**
- * A container for holding floating-point color data. How the color is to be interpreted depends on the {@code ColorModel} since the color data is a generic {@code float[]}.
+ * A container for holding floating-point color data. How the color is to be interpreted depends on the {@code ColorModel} since the color data is a generic {@code float[]}. All color data is assumed to range [0,1].
  * @since 1.0.0
  * @author Michiel Drost - Nullpointer Works
  */
@@ -38,7 +38,7 @@ public class Color
 	{
 		this.cm=cm;
 		values = new float[v.length];
-		for (int i=0, l=v.length; i<l; i++) values[i] = v[i];
+		for (int i=0, l=v.length; i<l; i++) setValue(i, v[i]);
 	}
 	
 	/**

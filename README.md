@@ -1,5 +1,5 @@
 # libcolor
-A color graphics library with color model and interpolation utilities. 
+A color graphics library with color model, tristimulus and interpolation utilities. 
 
 # module
 * exports com.nullpointerworks.color
@@ -9,7 +9,6 @@ A color graphics library with color model and interpolation utilities.
 * exports com.nullpointerworks.color.convertors.hsl
 * exports com.nullpointerworks.color.convertors.hsv
 * exports com.nullpointerworks.color.convertors.rgb
-* exports com.nullpointerworks.color.tristimulus
 
 # color v1.0
 * npw independent

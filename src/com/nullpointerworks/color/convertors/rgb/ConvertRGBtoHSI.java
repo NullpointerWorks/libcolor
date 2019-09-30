@@ -10,14 +10,15 @@ import com.nullpointerworks.color.ColorModel;
 import com.nullpointerworks.color.convertors.IConverter;
 
 /**
- * 
+ * This converter implementation compiles HSI(Hue, Saturation, Intensity) data from RGB(Red, Green, Blue) data.
  * @since 1.0.0
  * @author Michiel Drost - Nullpointer Works
  */
 public class ConvertRGBtoHSI implements IConverter
 {
 	/**
-	 * 
+	 * Returns a new RGB to HSI converter instance.
+	 * @return a new RGB to HSI converter instance
 	 * @since 1.0.0
 	 */
 	public static IConverter New() {return new ConvertRGBtoHSI();}
@@ -37,7 +38,6 @@ public class ConvertRGBtoHSI implements IConverter
 	    float S = 0f;
 	    float I = (R+G+B) * 0.333333333f;
 	    
-	    // calculate hue
 	    if(delta != 0f)
 	    {
 	        float halfDelta = ( delta * 0.5f );
@@ -67,7 +67,6 @@ public class ConvertRGBtoHSI implements IConverter
 		    H *= 360f;
 	    }
 	    
-	    //calculate intensity
 	    if (I != 0f)
 	    {
 	    	S = 1f - (min/I);
@@ -78,13 +77,13 @@ public class ConvertRGBtoHSI implements IConverter
 	    return new Color(ColorModel.HSI, H,S,I);
 	}
 	
-	float max(float x1,float x2,float x3)
+	private float max(float x1,float x2,float x3)
 	{
 		float x=(x1<x2)?x2:x1;
 		return (x<x3)?x3:x;
 	}
 	
-	float min(float x1,float x2,float x3)
+	private float min(float x1,float x2,float x3)
 	{
 		float x = (x1<x2)?x1:x2;
 		return (x<x3)?x:x3;

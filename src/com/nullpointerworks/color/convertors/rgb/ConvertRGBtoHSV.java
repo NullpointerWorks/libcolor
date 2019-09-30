@@ -10,14 +10,15 @@ import com.nullpointerworks.color.ColorModel;
 import com.nullpointerworks.color.convertors.IConverter;
 
 /**
- * 
+ * This converter implementation compiles HSV(Hue, Saturation, Value) data from RGB(Red, Green, Blue) data. The HSV color model is also known as HSB(Hue, Saturation, Brightness). HSV and HSB are the same color model.
  * @since 1.0.0
  * @author Michiel Drost - Nullpointer Works
  */
 public class ConvertRGBtoHSV implements IConverter
 {
 	/**
-	 * 
+	 * Returns a new RGB to HSV converter instance.
+	 * @return a new RGB to HSV converter instance
 	 * @since 1.0.0
 	 */
 	public static IConverter New() {return new ConvertRGBtoHSV();}

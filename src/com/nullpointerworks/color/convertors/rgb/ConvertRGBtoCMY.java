@@ -10,14 +10,15 @@ import com.nullpointerworks.color.ColorModel;
 import com.nullpointerworks.color.convertors.IConverter;
 
 /**
- * 
+ * This converter implementation compiles CMY(Cyan, Magenta, Yellow) data from RGB(Red, Green, Blue) data.
  * @since 1.0.0
  * @author Michiel Drost - Nullpointer Works
  */
 public class ConvertRGBtoCMY implements IConverter
 {
 	/**
-	 * 
+	 * Returns a new RGB to CMY converter instance.
+	 * @return a new RGB to CMY converter instance
 	 * @since 1.0.0
 	 */
 	public static IConverter New() {return new ConvertRGBtoCMY();}

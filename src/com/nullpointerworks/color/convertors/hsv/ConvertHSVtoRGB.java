@@ -10,14 +10,15 @@ import com.nullpointerworks.color.ColorModel;
 import com.nullpointerworks.color.convertors.IConverter;
 
 /**
- * 
+ * This converter implementation compiles RGB(Red, Green, Blue) data from HSV(Hue, Saturation, Value) data.
  * @since 1.0.0
  * @author Michiel Drost - Nullpointer Works
  */
 public class ConvertHSVtoRGB implements IConverter
 {
 	/**
-	 * 
+	 * Returns a new HSV to RGB converter instance.
+	 * @return a new HSV to RGB converter instance
 	 * @since 1.0.0
 	 */
 	public static IConverter New() {return new ConvertHSVtoRGB();}

@@ -13,13 +13,17 @@ import com.nullpointerworks.color.convertors.hsv.*;
 import com.nullpointerworks.color.convertors.rgb.*;
 
 /**
- * 
+ * The color converter class is used to transform a color in one color space to another color space. 
  * @since 1.0.0
  * @author Michiel Drost - Nullpointer Works
  */
 public final class ColorConverter
 {
-	static final IConverter[][] convertors = new IConverter[][]
+	/*
+	 * conversion look-up table
+	 * @since 1.0.0
+	 */
+	private static final IConverter[][] convertors = new IConverter[][]
 	{
 		// RGB to ...
 		{
@@ -64,7 +68,10 @@ public final class ColorConverter
 	};
 	
 	/**
-	 * 
+	 * Converts the given color into the specified color model. This method returns a new color instance in the form of said color model.
+	 * @param c - the color to convert
+	 * @param cm - the color model to convert into
+	 * @return a new color instance in the form of specified color model
 	 * @since 1.0.0
 	 */
 	public static Color convert(Color c, ColorModel cm)

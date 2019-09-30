@@ -6,14 +6,14 @@
 package com.nullpointerworks.color;
 
 /**
- * Standard tristimulus illuminant table from a reflecting diffuser. Observer XYZ, at 2° (CIE 1931) and at 10° (CIE 1964).
+ * Standard tristimulus illuminant table from a reflecting diffuser. Observer XYZ's are available at 2° (CIE 1931) and at 10° (CIE 1964).
  * @since 1.0.0
  * @author Michiel Drost - Nullpointer Works
  */
 public class TristimulusReference
 {
 	/*
-	 * tristimulus look-up-table
+	 * tristimulus look-up table
 	 */
 	private static final float[][] triref = 
 	{
@@ -40,5 +40,4 @@ public class TristimulusReference
 		int a = angle.ordinal() * 3;
 		return new float[] {triref[i][a], triref[i][a+1], triref[i][a+2]};
 	}
-	
 }

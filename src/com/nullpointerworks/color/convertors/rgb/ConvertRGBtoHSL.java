@@ -10,14 +10,15 @@ import com.nullpointerworks.color.ColorModel;
 import com.nullpointerworks.color.convertors.IConverter;
 
 /**
- * 
+ * This converter implementation compiles HSL(Hue, Saturation, Lightness) data from RGB(Red, Green, Blue) data.
  * @since 1.0.0
  * @author Michiel Drost - Nullpointer Works
  */
 public class ConvertRGBtoHSL implements IConverter
 {
 	/**
-	 * 
+	 * Returns a new RGB to HSL converter instance.
+	 * @return a new RGB to HSL converter instance
 	 * @since 1.0.0
 	 */
 	public static IConverter New() {return new ConvertRGBtoHSL();}
