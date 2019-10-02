@@ -5,133 +5,66 @@
  */
 package com.nullpointerworks.color;
 
+import com.nullpointerworks.color.colorizer.ColorizerARGB;
+import com.nullpointerworks.color.colorizer.ColorizerRGB;
+import com.nullpointerworks.color.colorizer.IColorizer;
+
 /**
- * 
+ * This class contains various tools for basic color formatting into the 32 bit integer format. 
  * @since 1.0.0
  * @author Michiel Drost - Nullpointer Works
  */
-public class Colorizer 
+public abstract class Colorizer implements IColorizer
 {
-	private Colorizer() {}
-	
 	/**
-	 * A color manipulation class 
+	 * Returns a 32 bit color manipulation class that handles 8 bit color channels in the specified format.
+	 * @param cf - the color format
+	 * @return a 32 bit color manipulation object in the specified format
 	 * @since 1.0.0
 	 */
-	public static final ColorizerARGB ARGB = new ColorizerARGB();
-	
-	/**
-	 * 
-	 * @since 1.0.0
-	 */
-	public static final ColorizerRGB RGB = new ColorizerRGB();
-	
-	/**
-	 * Percentage based color compilation. aRGB values range from [0,1]
-	 * @param a - the alpha transparency channel
-	 * @param r - the red color channel
-	 * @param g - the green color channel
-	 * @param b - the blue color channel
-	 * @since 1.0.0
-	 */
-	public static int toInt(float a, float r, float g, float b)
+	public static final Colorizer getColorizer(ColorFormat cf)
 	{
-		int ca = rnd(a*255f);
-		int cr = rnd(r*255f);
-		int cg = rnd(g*255f);
-		int cb = rnd(b*255f);
-		return toInt(ca, cr, cg, cb);
-	}
-	
-	/**
-     * Pass in aRGB values [0,255]. returns the integer value
-	 * @param a - the alpha transparency channel
-	 * @param r - the red color channel
-	 * @param g - the green color channel
-	 * @param b - the blue color channel
-	 * @since 1.0.0
-     */
-	public static int toInt(int a,int r,int g,int b)
-	{
-		return ( a<<24 | r<<16 | g<<8 | b );
-	}
-	
-	/**
-	 * Percentage based color compilation. RGB values range from [0,1]
-	 * @param r - the red color channel
-	 * @param g - the green color channel
-	 * @param b - the blue color channel
-	 * @since 1.0.0
-	 */
-	public static int toInt(float r, float g, float b)
-	{
-		int cr = rnd(r*255f);
-		int cg = rnd(g*255f);
-		int cb = rnd(b*255f);
-		return toInt(255, cr, cg, cb);
-	}
-	
-    /**
-     * Pass in RGB values [0,255]. returns the integer value with full alpha
-	 * @param r - the red color channel
-	 * @param g - the green color channel
-	 * @param b - the blue color channel
-	 * @since 1.0.0
-     */
-	public static int toInt(int r,int g, int b)
-	{
-		return ( (-16777216) | r<<16 | g<<8 | b );
-	}
-	
-	/**
-	 * Returns the color integer value of the given 6-digit hexadecimal string. 
-	 * @since 1.0.0
-	 */
-	public static int fromHex(String hex)
-	{
-		hex = hex.replace("0x", "");
-		hex = hex.replace("0X", "");
-		hex = hex.replace("#", "");
-		hex = hex.replace("h", "");
-		hex = hex.replace("H", "");
-		int r=0,g=0,b=0,a=255;
-		if (hex.length() == 6)
+		switch(cf)
 		{
-			r = Integer.parseInt( hex.substring(0, 2), 16 );
-			g = Integer.parseInt( hex.substring(2, 4), 16 );
-			b = Integer.parseInt( hex.substring(4, 6), 16 );
+		default:
+		case RGB: return new ColorizerRGB();
+		case ARGB: return new ColorizerARGB();
 		}
-		else throw new NumberFormatException();
-		return toInt(a, r, g, b);
 	}
 	
-	/**
-	 * Returns the hex value as a {@code String} of the given integer.
-	 * @param r - the red color channel
-	 * @param g - the green color channel
-	 * @param b - the blue color channel
-	 * @return the hex value as a {@code String} of the given integer
+	/*
+	 * rounding function
 	 */
-	public static String toHex(int r, int g, int b)
-	{
-		r = clamp(0, r, 255);
-		g = clamp(0, g, 255);
-		b = clamp(0, b, 255);
-		String rhex = Integer.toHexString(r);
-		String ghex = Integer.toHexString(g);
-		String bhex = Integer.toHexString(b);
-		return rhex+ghex+bhex;
-	}
-	
-	private static int rnd(float x) 
+	protected final int rnd(float x) 
 	{
 		return (int)(x+0.5f);
 	}
 	
-	private static int clamp(int l, int x, int h) 
+	/*
+	 * simple clamping function
+	 */
+	protected final int clamp(int l, int x, int h) 
 	{
 		x = (x<l)?l:x;
 		x = (x>h)?h:x;
 		return x;
+	}
+	
+	/*
+	 * Integer Lerp - interpolate two integers
+	 */
+	protected final int il256(int A, int B, int F)
+	{
+		return (A*(256-F) + B * F) >> 8;
+	}
+	
+	/*
+	 * Square Integer Lerp - square interpolate two integers 
+	 */
+	protected final int sil256(int A, int B, int F)
+	{
+		A=A*A; B=B*B;
+		int x = il256(A,B,F);
+		return (int)((Math.sqrt(x)+0.5));
 	}
 }
