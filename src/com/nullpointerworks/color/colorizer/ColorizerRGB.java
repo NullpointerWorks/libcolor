@@ -76,50 +76,45 @@ public class ColorizerRGB extends Colorizer
 	}
 	
 	/**
-	 * Returns the hex value as a {@code String} of the given integer.
-	 * @param r - the red color channel
-	 * @param g - the green color channel
-	 * @param b - the blue color channel
-	 * @return the hex value as a {@code String} of the given integer
-	 * @since 1.0.0
-	 */
-	public String toHex(int r, int g, int b)
-	{
-		r = clamp(0, r, 255);
-		g = clamp(0, g, 255);
-		b = clamp(0, b, 255);
-		String rhex = Integer.toHexString(r);
-		String ghex = Integer.toHexString(g);
-		String bhex = Integer.toHexString(b);
-		return rhex+ghex+bhex;
-	}
-	
-    /**
      * Pass in RGB values [0,255]. Returns the integer value at full opacity.
-	 * @param r - the red color channel
-	 * @param g - the green color channel
-	 * @param b - the blue color channel
+	 * @param rgb - a list of colors values in the order of R, G and B
 	 * @return the integer value of the color
 	 * @since 1.0.0
      */
-	public int toInt(int r, int g, int b)
+	public int toInt(int... rgb)
 	{
-		return ( (-16777216) | r<<16 | g<<8 | b );
+		return ( (-16777216)| rgb[0]<<16 | rgb[1]<<8 | rgb[2] );
 	}
 	
 	/**
 	 * Percentage based color compilation. RGB values range from [0,1]. Returns the integer value at full opacity.
-	 * @param r - the red color channel
-	 * @param g - the green color channel
-	 * @param b - the blue color channel
+	 * @param argb - a list of colors values in the order of R, G and B
 	 * @return the integer value of the color
 	 * @since 1.0.0
 	 */
-	public int toInt(float r, float g, float b)
+	public int toInt(float... rgb)
 	{
-		int cr = rnd(r*255f);
-		int cg = rnd(g*255f);
-		int cb = rnd(b*255f);
+		int cr = rnd(rgb[0]*255f);
+		int cg = rnd(rgb[1]*255f);
+		int cb = rnd(rgb[2]*255f);
 		return toInt(cr, cg, cb);
+	}
+
+	/**
+	 * Returns the hex value as a {@code String} of the given integer.
+	 * @param rgb - a list of colors values in the order of A, R, G and B
+	 * @return the hex value as a {@code String} of the given integer
+	 * @since 1.0.0
+	 */
+	@Override
+	public String toHex(int... rgb)
+	{
+		int r = clamp(0, rgb[0], 255);
+		int g = clamp(0, rgb[1], 255);
+		int b = clamp(0, rgb[2], 255);
+		String rhex = Integer.toHexString(r);
+		String ghex = Integer.toHexString(g);
+		String bhex = Integer.toHexString(b);
+		return rhex+ghex+bhex;
 	}
 }

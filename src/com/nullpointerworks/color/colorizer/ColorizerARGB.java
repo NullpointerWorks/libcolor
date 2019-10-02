@@ -83,55 +83,50 @@ public class ColorizerARGB extends Colorizer
 	}
 	
 	/**
+     * Pass in ARGB values [0,255]. Returns the integer value at a specified opacity.
+	 * @param argb - a list of colors values in the order of A, R, G and B
+	 * @return the integer value of the color
+	 * @since 1.0.0
+     */
+	@Override
+	public int toInt(int... argb)
+	{
+		return ( argb[0]<<24 | argb[1]<<16 | argb[2]<<8 | argb[3] );
+	}
+	
+	/**
+	 * Percentage based color compilation. ARGB values range from [0,1]. Returns the integer value at a specified opacity.
+	 * @param argb - a list of colors values in the order of A, R, G and B
+	 * @return the integer value of the color
+	 * @since 1.0.0
+	 */
+	@Override
+	public int toInt(float... argb)
+	{
+		int ca = rnd(argb[0]*255f);
+		int cr = rnd(argb[1]*255f);
+		int cg = rnd(argb[2]*255f);
+		int cb = rnd(argb[3]*255f);
+		return toInt(ca, cr, cg, cb);
+	}
+	
+	/**
 	 * Returns the hex value as a {@code String} of the given integer.
-	 * @param r - the red color channel
-	 * @param g - the green color channel
-	 * @param b - the blue color channel
+	 * @param argb - a list of colors values in the order of A, R, G and B
 	 * @return the hex value as a {@code String} of the given integer
 	 * @since 1.0.0
 	 */
-	public String toHex(int a, int r, int g, int b)
+	@Override
+	public String toHex(int... argb)
 	{
-		a = clamp(0, a, 255);
-		r = clamp(0, r, 255);
-		g = clamp(0, g, 255);
-		b = clamp(0, b, 255);
+		int a = clamp(0, argb[0], 255);
+		int r = clamp(0, argb[1], 255);
+		int g = clamp(0, argb[2], 255);
+		int b = clamp(0, argb[3], 255);
 		String ahex = Integer.toHexString(a);
 		String rhex = Integer.toHexString(r);
 		String ghex = Integer.toHexString(g);
 		String bhex = Integer.toHexString(b);
 		return ahex+rhex+ghex+bhex;
-	}
-	
-	/**
-     * Pass in RGB values [0,255]. Returns the integer value at a specified opacity.
-	 * @param a - the alpha transparency channel
-	 * @param r - the red color channel
-	 * @param g - the green color channel
-	 * @param b - the blue color channel
-	 * @return the integer value of the color
-	 * @since 1.0.0
-     */
-	public int toInt(int a, int r,int g,int b)
-	{
-		return ( a<<24 | r<<16 | g<<8 | b );
-	}
-	
-	/**
-	 * Percentage based color compilation. RGB values range from [0,1]. Returns the integer value at a specified opacity.
-	 * @param a - the alpha transparency channel
-	 * @param r - the red color channel
-	 * @param g - the green color channel
-	 * @param b - the blue color channel
-	 * @return the integer value of the color
-	 * @since 1.0.0
-	 */
-	public int toInt(float a, float r, float g, float b)
-	{
-		int ca = rnd(a*255f);
-		int cr = rnd(r*255f);
-		int cg = rnd(g*255f);
-		int cb = rnd(b*255f);
-		return toInt(ca, cr, cg, cb);
 	}
 }

@@ -52,4 +52,28 @@ public interface IColorizer
 	 * @since 1.0.0
 	 */
 	int fromHex(String hex);
+
+	/**
+     * Pass in RGB values [0,255]. Returns the integer value.
+	 * @param c - a list of colors values
+	 * @return the integer value of the color
+	 * @since 1.0.0
+     */
+	int toInt(int... c);
+	
+	/**
+	 * Percentage based color compilation. RGB values range from [0,1]. Returns the integer value.
+	 * @param c - a list of colors values
+	 * @return the integer value of the color
+	 * @since 1.0.0
+	 */
+	int toInt(float... c);
+	
+	/**
+	 * Returns the hex value as a {@code String} of the given integer.
+	 * @param c - a list of colors values
+	 * @return the hex value as a {@code String} of the given integer
+	 * @since 1.0.0
+	 */
+	String toHex(int... c);
 }
